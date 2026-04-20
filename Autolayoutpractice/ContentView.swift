@@ -9,28 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.gray.opacity(0.1).ignoresSafeArea()
+        ScrollView {
             HStack(spacing: 10) {
-                Image("download")
+                Image(.download)
                     .resizable()
+                    .scaledToFill()
+                    .containerRelativeFrame(
+                        .horizontal, count: 3, span: 1, spacing: 10.0)
                     .aspectRatio(1/2, contentMode: .fit)
                     .clipped()
-                
-                Image("download-4")
+                Image(.download)
                     .resizable()
+                    .scaledToFill()
+                    .containerRelativeFrame(
+                        .horizontal, count: 3, span: 1, spacing: 10.0)
                     .aspectRatio(1/2, contentMode: .fit)
-                    .frame(maxWidth: .infinity)
                     .clipped()
-                
-                Image("download-5")
+                Image(.download)
                     .resizable()
-                    .aspectRatio(0.5, contentMode: .fit)
-                    .frame(maxWidth: .infinity)
+                    .scaledToFill()
+                    .containerRelativeFrame(
+                        .horizontal, count: 3, span: 1, spacing: 10.0)
+                    .aspectRatio(1/2, contentMode: .fit)
                     .clipped()
             }
-            .padding(.horizontal, 20)
         }
+        .contentMargins(.horizontal, 20)
+        .fixedSize(horizontal: false, vertical: true)
+        .scrollDisabled(true)
     }
 }
 
